@@ -1,116 +1,162 @@
-# Marital status
+# Parental status
 import pandas as pd
 
 
-df = pd.read_excel('~/Documents/EAPOCVL/_2023_05_07/CLIENTS.xlsx')
+df = pd.read_excel('~/Documents/EAPOCVL/_2023_05_07/CLIENTS_VARIABLE.xlsx')
 # df = df.columns
 # print(df)
 
-df = df['marital_status'].value_counts()
-print(df)
+# df = df['redcap_event_name'].value_counts()
+# df = df['redcap_data_access_group'].value_counts()
+# df = df['what_is_the_life_status_of'].value_counts()
+# print(df)
+df = df[(df['redcap_event_name'] == 'enrollment_v1_arm_1')]
+# print(df)
 
-df = df[(df['education_level'] == 'Not attended school') | (df['education_level'] == 'Primary') | (
-    df['education_level'] == 'Secondary') | (df['education_level'] == 'Certificate') | (df['education_level'] == 'Diploma')
-    | (df['education_level'] == 'Undergraduate degree') | (df['education_level'] == 'Postgraduate degree')]
+df_T = df[(df['redcap_data_access_group'] == 'amana_hospital') | (df['redcap_data_access_group'] == 'mnazi_mmoja_hospit') | (
+    df['redcap_data_access_group'] == 'mwananyamala_hospi') | (df['redcap_data_access_group'] == 'sinza_hospital')]
 
-dfp = df[(df['education_level'] == 'Primary')]
-dfs = df[(df['education_level'] == 'Secondary')]
-dft = df[(df['education_level'] == 'Undergraduate degree') |
-         (df['education_level'] == 'Postgraduate degree')]
-dfo = df[(df['education_level'] == 'Diploma') | (df['education_level']
-                                                 == 'Not attended school') | (df['education_level'] == 'Certificate')]
-dfp_i = dfp[(dfp['site_id'] == 2) | (dfp['site_id'] == 4)]
-dfs_i = dfs[(dfs['site_id'] == 2) | (dfs['site_id'] == 4)]
-dft_i = dft[(dft['site_id'] == 2) | (dft['site_id'] == 4)]
-dfo_i = dfo[(dfo['site_id'] == 2) | (dfo['site_id'] == 4)]
-dfp_c = dfp[(dfp['site_id'] == 1) | (dfp['site_id'] == 3)]
-dfs_c = dfs[(dfs['site_id'] == 1) | (dfs['site_id'] == 3)]
-dft_c = dft[(dft['site_id'] == 1) | (dft['site_id'] == 3)]
-dfo_c = dfo[(dfo['site_id'] == 1) | (dfo['site_id'] == 3)]
+df_L = df_T[(df_T['what_is_the_life_status_of'] == 1) | (df_T['what_is_the_life_status_of'] == 2) | (
+    df_T['what_is_the_life_status_of'] == 3) | (df_T['what_is_the_life_status_of'] == 4)]
+
+df_i_T = df_L[(df_L['redcap_data_access_group'] == 'mwananyamala_hospi') | (df_L['redcap_data_access_group'] == 'mnazi_mmoja_hospit')]
+df_c_T = df_L[(df_L['redcap_data_access_group'] == 'amana_hospital') | (df_L['redcap_data_access_group'] == 'sinza_hospital')]
 
 
-
-df_T = df.shape[0]
-df_P = (df_T * 100) / (df_T)
-
-
-dfp_T = dfp.shape[0]
-dfp_P = (dfp_T * 100) / (df_T)
-
-dfs_T = dfs.shape[0]
-dfs_P = (dfs_T * 100) / (df_T)
-
-dft_T = dft.shape[0]
-dft_P = (dft_T * 100) / (df_T)
-
-dfo_T = dfo.shape[0]
-dfo_P = (dfo_T * 100) / (df_T)
+df1 = df_L[(df_L['what_is_the_life_status_of'] == 1)]
+df2 = df_L[(df_L['what_is_the_life_status_of'] == 2)]
+df3 = df_L[(df_L['what_is_the_life_status_of'] == 3)]
+df4 = df_L[(df_L['what_is_the_life_status_of'] == 4)]
 
 
-dfp_i_T = dfp_i.shape[0]
-dfp_i_P = (dfp_i_T * 100) / (df_T)
+df1_i = df1[(df1['redcap_data_access_group'] == 'mwananyamala_hospi') | (df1['redcap_data_access_group'] == 'mnazi_mmoja_hospit')]
+df2_i = df2[(df2['redcap_data_access_group'] == 'mwananyamala_hospi') | (df2['redcap_data_access_group'] == 'mnazi_mmoja_hospit')]
+df3_i = df3[(df3['redcap_data_access_group'] == 'mwananyamala_hospi') | (df3['redcap_data_access_group'] == 'mnazi_mmoja_hospit')]
+df4_i = df4[(df4['redcap_data_access_group'] == 'mwananyamala_hospi') | (df4['redcap_data_access_group'] == 'mnazi_mmoja_hospit')]
 
-dfs_i_T = dfs_i.shape[0]
-dfs_i_P = (dfs_i_T * 100) / (df_T)
-
-dft_i_T = dft_i.shape[0]
-dft_i_P = (dft_i_T * 100) / (df_T)
-
-dfo_i_T = dfo_i.shape[0]
-dfo_i_P = (dfo_i_T * 100) / (df_T)
+df1_c = df1[(df1['redcap_data_access_group'] == 'amana_hospital') | (df1['redcap_data_access_group'] == 'sinza_hospital')]
+df2_c = df2[(df2['redcap_data_access_group'] == 'amana_hospital') | (df2['redcap_data_access_group'] == 'sinza_hospital')]
+df3_c = df3[(df3['redcap_data_access_group'] == 'amana_hospital') | (df3['redcap_data_access_group'] == 'sinza_hospital')]
+df4_c = df4[(df4['redcap_data_access_group'] == 'amana_hospital') | (df4['redcap_data_access_group'] == 'sinza_hospital')]
 
 
 
-dfp_c_T = dfp_c.shape[0]
-dfp_c_P = (dfp_c_T * 100) / (df_T)
+df_T = df_T.shape[0]
+df_L = df_L.shape[0]
+df_P = (df_L * 100) / (df_T)
 
-dfs_c_T = dfs_c.shape[0]
-dfs_c_P = (dfs_c_T * 100) / (df_T)
+df_i_T = df_i_T.shape[0]
+df_i_P = (df_i_T * 100) / (df_T)
 
-dft_c_T = dft_c.shape[0]
-dft_c_P = (dft_c_T * 100) / (df_T)
-
-dfo_c_T = dfo_c.shape[0]
-dfo_c_P = (dfo_c_T * 100) / (df_T)
-
-## OUT PUT
-
-print(df_T)
-print(df_P)
-
-print(dfp_T)
-print(dfp_P)
-
-print(dfs_T)
-print(dfs_P)
-
-print(dft_T)
-print(dft_P)
-
-print(dfo_T)
-print(dfo_P)
-
-print(dfp_i_T)
-print(dfp_i_P)
-
-print(dfs_i_T)
-print(dfs_i_P)
-
-print(dft_i_T)
-print(dft_i_P)
-
-print(dfo_i_T)
-print(dfo_i_P)
+df_c_T = df_c_T.shape[0]
+df_c_P = (df_c_T * 100) / (df_T)
 
 
-print(dfp_c_T)
-print(dfp_c_P)
+df1_T = df1.shape[0]
+df1_P = (df1_T * 100) / (df_L)
 
-print(dfs_c_T)
-print(dfs_c_P)
+df2_T = df2.shape[0]
+df2_P = (df2_T * 100) / (df_L)
 
-print(dft_c_T)
-print(dft_c_P)
+df3_T = df3.shape[0]
+df3_P = (df3_T * 100) / (df_L)
 
-print(dfo_c_T)
-print(dfo_c_P)
+df4_T = df4.shape[0]
+df4_P = (df4_T * 100) / (df_L)
+
+
+df1_i_T = df1_i.shape[0]
+df1_i_P = (df1_i_T * 100) / (df1_T)
+
+df2_i_T = df2_i.shape[0]
+df2_i_P = (df2_i_T * 100) / (df2_T)
+
+df3_i_T = df3_i.shape[0]
+df3_i_P = (df3_i_T * 100) / (df3_T)
+
+df4_i_T = df4_i.shape[0]
+df4_i_P = (df4_i_T * 100) / (df4_T)
+
+
+df1_c_T = df1_c.shape[0]
+df1_c_P = (df1_c_T * 100) / (df1_T)
+
+df2_c_T = df2_c.shape[0]
+df2_c_P = (df2_c_T * 100) / (df2_T)
+
+df3_c_T = df3_c.shape[0]
+df3_c_P = (df3_c_T * 100) / (df3_T)
+
+df4_c_T = df4_c.shape[0]
+df4_c_P = (df4_c_T * 100) / (df4_T)
+
+# ## OUT PUT
+print(f'')
+print(f'"NIMR SITES - TANZANIA"')
+print(f'"Parental status"')
+print(f'')
+
+print(f'Total Answers     : {df_L}')
+print(f'Total Enrolled    : {df_T}')
+print(f'Answers / Enrolled: {df_P} %')
+
+print(f'')
+print(f'Total')
+print(f'')
+
+
+
+print(f'Both parents alive   : {df1_T} ')
+print(f'Both parents alive   : {df1_P} %')
+
+print(f'Only mother alive    : {df2_T}')
+print(f'Only mother alive    : {df2_P} %')
+
+print(f'Only father alive    : {df3_T}')
+print(f'Only father alive    : {df3_P} %')
+
+print(f'Both parents deceased: {df4_T}')
+print(f'Both parents deceased: {df4_P} %')
+
+print(f'')
+print(f'Intervtn')
+print(f'')
+
+print(f'Total Intervtn                  : {df_i_T}')
+print(f'Percentage Intervtn             : {df_i_P} %')
+
+print(f'')
+
+print(f'Both parents alive (Intervtn)   : {df1_i_T}')
+print(f'Both parents alive (Intervtn)   : {df1_i_P} %')
+
+print(f'Only mother alive (Intervtn)    : {df2_i_T}')
+print(f'Only mother alive (Intervtn)    : {df2_i_P} %')
+
+print(f'Only father alive (Intervtn)    : {df3_i_T}')
+print(f'Only father alive (Intervtn)    : {df3_i_P} %')
+
+print(f'Both parents deceased (Intervtn): {df4_i_T}')
+print(f'Both parents deceased (Intervtn): {df4_i_P} %')
+
+
+print(f'')
+print(f'Control')
+print(f'')
+
+print(f'Total Control                  : {df_c_T}')
+print(f'Percentage Control             : {df_c_P} %')
+
+print(f'')
+
+print(f'Both parents alive (Control)   : {df1_c_T}')
+print(f'Both parents alive (Control)   : {df1_c_P} %')
+
+print(f'Only mother alive (Control)    : {df2_c_T}')
+print(f'Only mother alive (Control)    : {df2_c_P} %')
+
+print(f'Only father alive (Control)    : {df3_c_T}')
+print(f'Only father alive (Control)    : {df3_c_P} %')
+
+print(f'Both parents deceased (Control): {df4_c_T}')
+print(f'Both parents deceased (Control): {df4_c_P} %')
