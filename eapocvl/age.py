@@ -2,19 +2,11 @@ import pandas as pd
 
 
 df = pd.read_excel('CLIENTS.xlsx')
-df = df.columns
-print(df)
+# df = df.columns
+# print(df)
 df = df[['study_id', 'age', 'gender', 'marital_status',
          'education_level', 'occupation', 'site_id']]
 
-df = df[['country', 'name', 'id', 'status', 'hospital', 'age', 'sex']]
-df = df[df.id.str.contains("TB")]
-
-df2 = df[['country', 'name', 'id', 'status', 'hospital', 'age', 'sex']].sort_values('id')
-
-df = df[df.duplicated(subset=['id'], keep=False)].sort_values('id')
-
-df2.to_excel('Retrospective Data Tanzania.xlsx', index=False)
 
 
 # AGE CATEGORY
