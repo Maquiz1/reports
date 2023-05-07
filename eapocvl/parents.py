@@ -88,8 +88,8 @@ print(f'"NIMR SITES - TANZANIA"')
 print(f'"Parental status"')
 print(f'')
 
-print(f'Total Answers: {df_L}')
-print(f'Total Enrolled: {df_T}')
+print(f'Total Answers     : {df_L}')
+print(f'Total Enrolled    : {df_T}')
 print(f'Answers / Enrolled: {df_P} %')
 
 print(f'')
@@ -97,14 +97,14 @@ print(f'Total')
 print(f'')
 
 
-print(f'Both parents alive: {df1_T} %')
-print(f'Both parents alive: {df1_P} %')
+print(f'Both parents alive   : {df1_T} ')
+print(f'Both parents alive   : {df1_P} %')
 
-print(f'Only mother alive alive: {df2_T}')
-print(f'Only mother alive alive: {df2_P} %')
+print(f'Only mother alive    : {df2_T}')
+print(f'Only mother alive    : {df2_P} %')
 
-print(f'Only father alive: {df3_T}')
-print(f'Only father alive: {df3_P} %')
+print(f'Only father alive    : {df3_T}')
+print(f'Only father alive    : {df3_P} %')
 
 print(f'Both parents deceased: {df4_T}')
 print(f'Both parents deceased: {df4_P} %')
@@ -114,14 +114,14 @@ print(f'Intervtn')
 print(f'')
 
 
-print(f'Both parents alive (Intervtn): {df1_i_T}')
-print(f'Both parents alive (Intervtn): {df1_i_P} %')
+print(f'Both parents alive (Intervtn)   : {df1_i_T}')
+print(f'Both parents alive (Intervtn)   : {df1_i_P} %')
 
-print(f'Only mother alive alive (Intervtn): {df2_i_T}')
-print(f'Only mother alive alive (Intervtn): {df2_i_P} %')
+print(f'Only mother alive (Intervtn)    : {df2_i_T}')
+print(f'Only mother alive (Intervtn)    : {df2_i_P} %')
 
-print(f'Only father alive (Intervtn): {df3_i_T}')
-print(f'Only father alive (Intervtn): {df3_i_P} %')
+print(f'Only father alive (Intervtn)    : {df3_i_T}')
+print(f'Only father alive (Intervtn)    : {df3_i_P} %')
 
 print(f'Both parents deceased (Intervtn): {df4_i_T}')
 print(f'Both parents deceased (Intervtn): {df4_i_P} %')
@@ -133,14 +133,14 @@ print(f'')
 
 
 
-print(f'Both parents alive (Control): {df1_c_T}')
-print(f'Both parents alive (Control): {df1_c_P} %')
+print(f'Both parents alive (Control)   : {df1_c_T}')
+print(f'Both parents alive (Control)   : {df1_c_P} %')
 
-print(f'Only mother alive alive (Control): {df2_c_T}')
-print(f'Only mother alive alive (Control): {df2_c_P} %')
+print(f'Only mother alive (Control)    : {df2_c_T}')
+print(f'Only mother alive (Control)    : {df2_c_P} %')
 
-print(f'Only father alive (Control): {df3_c_T}')
-print(f'Only father alive (Control): {df3_c_P} %')
+print(f'Only father alive (Control)    : {df3_c_T}')
+print(f'Only father alive (Control)    : {df3_c_P} %')
 
 print(f'Both parents deceased (Control): {df4_c_T}')
 print(f'Both parents deceased (Control): {df4_c_P} %')
