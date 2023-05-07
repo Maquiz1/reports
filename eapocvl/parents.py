@@ -6,8 +6,11 @@ df = pd.read_excel('~/Documents/EAPOCVL/_2023_05_07/CLIENTS_VARIABLE.xlsx')
 # df = df.columns
 # print(df)
 
+# df = df['redcap_event_name'].value_counts()
 # df = df['redcap_data_access_group'].value_counts()
 # df = df['what_is_the_life_status_of'].value_counts()
+# print(df)
+df = df[(df['redcap_event_name'] == 'enrollment_v1_arm_1')]
 # print(df)
 
 df_T = df[(df['redcap_data_access_group'] == 'amana_hospital') | (df['redcap_data_access_group'] == 'mnazi_mmoja_hospit') | (
@@ -80,44 +83,64 @@ df4_c_T = df4_c.shape[0]
 df4_c_P = (df4_c_T * 100) / (df4_T)
 
 # ## OUT PUT
+print(f'')
+print(f'"NIMR SITES - TANZANIA"')
+print(f'"Parental status"')
+print(f'')
 
-print(df_L)
-print(df_T)
-print(df_P)
+print(f'Total Answers: {df_L}')
+print(f'Total Enrolled: {df_T}')
+print(f'Answers / Enrolled: {df_P} %')
 
-print(df1_T)
-print(df1_P)
-
-print(df2_T)
-print(df2_P)
-
-print(df3_T)
-print(df3_P)
-
-print(df4_T)
-print(df4_P)
-
-print(df1_i_T)
-print(df1_i_P)
-
-print(df2_i_T)
-print(df2_i_P)
-
-print(df3_i_T)
-print(df3_i_P)
-
-print(df4_i_T)
-print(df4_i_P)
+print(f'')
+print(f'Total')
+print(f'')
 
 
-print(df1_c_T)
-print(df1_c_P)
+print(f'Both parents alive: {df1_T} %')
+print(f'Both parents alive: {df1_P} %')
 
-print(df2_c_T)
-print(df2_c_P)
+print(f'Only mother alive alive: {df2_T}')
+print(f'Only mother alive alive: {df2_P} %')
 
-print(df3_c_T)
-print(df3_c_P)
+print(f'Only father alive: {df3_T}')
+print(f'Only father alive: {df3_P} %')
 
-print(df4_c_T)
-print(df4_c_P)
+print(f'Both parents deceased: {df4_T}')
+print(f'Both parents deceased: {df4_P} %')
+
+print(f'')
+print(f'Intervtn')
+print(f'')
+
+
+print(f'Both parents alive (Intervtn): {df1_i_T}')
+print(f'Both parents alive (Intervtn): {df1_i_P} %')
+
+print(f'Only mother alive alive (Intervtn): {df2_i_T}')
+print(f'Only mother alive alive (Intervtn): {df2_i_P} %')
+
+print(f'Only father alive (Intervtn): {df3_i_T}')
+print(f'Only father alive (Intervtn): {df3_i_P} %')
+
+print(f'Both parents deceased (Intervtn): {df4_i_T}')
+print(f'Both parents deceased (Intervtn): {df4_i_P} %')
+
+
+print(f'')
+print(f'Control')
+print(f'')
+
+
+
+print(f'Both parents alive (Control): {df1_c_T}')
+print(f'Both parents alive (Control): {df1_c_P} %')
+
+print(f'Only mother alive alive (Control): {df2_c_T}')
+print(f'Only mother alive alive (Control): {df2_c_P} %')
+
+print(f'Only father alive (Control): {df3_c_T}')
+print(f'Only father alive (Control): {df3_c_P} %')
+
+print(f'Both parents deceased (Control): {df4_c_T}')
+print(f'Both parents deceased (Control): {df4_c_P} %')
