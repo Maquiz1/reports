@@ -38,46 +38,46 @@ df4_c = df4[(df4['redcap_data_access_group'] == 'amana_hospital') | (df4['redcap
 
 df_T = df_T.shape[0]
 df_L = df_L.shape[0]
-df_P = (df_L * 100) / (df_L)
+df_P = (df_L * 100) / (df_T)
 
 
 df1_T = df1.shape[0]
-df1_P = (df1_T * 100) / (df_T)
+df1_P = (df1_T * 100) / (df_L)
 
-dfs_T = dfs.shape[0]
-dfs_P = (dfs_T * 100) / (df_T)
+df2_T = df2.shape[0]
+df2_P = (df2_T * 100) / (df_L)
 
-dft_T = dft.shape[0]
-dft_P = (dft_T * 100) / (df_T)
+df3_T = df3.shape[0]
+df3_P = (df3_T * 100) / (df_L)
 
-dfo_T = dfo.shape[0]
-dfo_P = (dfo_T * 100) / (df_T)
-
-
-dfp_i_T = dfp_i.shape[0]
-dfp_i_P = (dfp_i_T * 100) / (df_T)
-
-dfs_i_T = dfs_i.shape[0]
-dfs_i_P = (dfs_i_T * 100) / (df_T)
-
-dft_i_T = dft_i.shape[0]
-dft_i_P = (dft_i_T * 100) / (df_T)
-
-dfo_i_T = dfo_i.shape[0]
-dfo_i_P = (dfo_i_T * 100) / (df_T)
+df4_T = df4.shape[0]
+df4_P = (df4_T * 100) / (df_L)
 
 
-dfp_c_T = dfp_c.shape[0]
-dfp_c_P = (dfp_c_T * 100) / (df_T)
+df1_i_T = df1_i.shape[0]
+df1_i_P = (df1_i_T * 100) / (df1_T)
 
-dfs_c_T = dfs_c.shape[0]
-dfs_c_P = (dfs_c_T * 100) / (df_T)
+df2_i_T = df2_i.shape[0]
+df2_i_P = (df2_i_T * 100) / (df2_T)
 
-dft_c_T = dft_c.shape[0]
-dft_c_P = (dft_c_T * 100) / (df_T)
+df3_i_T = df3_i.shape[0]
+df3_i_P = (df3_i_T * 100) / (df3_T)
 
-dfo_c_T = dfo_c.shape[0]
-dfo_c_P = (dfo_c_T * 100) / (df_T)
+df4_i_T = df4_i.shape[0]
+df4_i_P = (df4_i_T * 100) / (df4_T)
+
+
+df1_c_T = df1_c.shape[0]
+df1_c_P = (df1_c_T * 100) / (df1_T)
+
+df2_c_T = df2_c.shape[0]
+df2_c_P = (df2_c_T * 100) / (df2_T)
+
+df3_c_T = df3_c.shape[0]
+df3_c_P = (df3_c_T * 100) / (df3_T)
+
+df4_c_T = df4_c.shape[0]
+df4_c_P = (df4_c_T * 100) / (df4_T)
 
 # ## OUT PUT
 
@@ -85,39 +85,39 @@ print(df_L)
 print(df_T)
 print(df_P)
 
-print(dfp_T)
-print(dfp_P)
+print(df1_T)
+print(df1_P)
 
-print(dfs_T)
-print(dfs_P)
+print(df2_T)
+print(df2_P)
 
-print(dft_T)
-print(dft_P)
+print(df3_T)
+print(df3_P)
 
-print(dfo_T)
-print(dfo_P)
+print(df4_T)
+print(df4_P)
 
-print(dfp_i_T)
-print(dfp_i_P)
+print(df1_i_T)
+print(df1_i_P)
 
-print(dfs_i_T)
-print(dfs_i_P)
+print(df2_i_T)
+print(df2_i_P)
 
-print(dft_i_T)
-print(dft_i_P)
+print(df3_i_T)
+print(df3_i_P)
 
-print(dfo_i_T)
-print(dfo_i_P)
+print(df4_i_T)
+print(df4_i_P)
 
 
-print(dfp_c_T)
-print(dfp_c_P)
+print(df1_c_T)
+print(df1_c_P)
 
-print(dfs_c_T)
-print(dfs_c_P)
+print(df2_c_T)
+print(df2_c_P)
 
-print(dft_c_T)
-print(dft_c_P)
+print(df3_c_T)
+print(df3_c_P)
 
-print(dfo_c_T)
-print(dfo_c_P)
+print(df4_c_T)
+print(df4_c_P)
