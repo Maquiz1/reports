@@ -16,9 +16,11 @@ df = df[(df['redcap_event_name'] == 'enrollment_v1_arm_1')]
 df_T = df[(df['redcap_data_access_group'] == 'amana_hospital') | (df['redcap_data_access_group'] == 'mnazi_mmoja_hospit') | (
     df['redcap_data_access_group'] == 'mwananyamala_hospi') | (df['redcap_data_access_group'] == 'sinza_hospital')]
 
-
 df_L = df_T[(df_T['what_is_the_life_status_of'] == 1) | (df_T['what_is_the_life_status_of'] == 2) | (
     df_T['what_is_the_life_status_of'] == 3) | (df_T['what_is_the_life_status_of'] == 4)]
+
+df_i_T = df_L[(df_L['redcap_data_access_group'] == 'mwananyamala_hospi') | (df_L['redcap_data_access_group'] == 'mnazi_mmoja_hospit')]
+df_c_T = df_L[(df_L['redcap_data_access_group'] == 'amana_hospital') | (df_L['redcap_data_access_group'] == 'sinza_hospital')]
 
 
 df1 = df_L[(df_L['what_is_the_life_status_of'] == 1)]
@@ -42,6 +44,12 @@ df4_c = df4[(df4['redcap_data_access_group'] == 'amana_hospital') | (df4['redcap
 df_T = df_T.shape[0]
 df_L = df_L.shape[0]
 df_P = (df_L * 100) / (df_T)
+
+df_i_T = df_i_T.shape[0]
+df_i_P = (df_i_T * 100) / (df_T)
+
+df_c_T = df_c_T.shape[0]
+df_c_P = (df_c_T * 100) / (df_T)
 
 
 df1_T = df1.shape[0]
@@ -97,6 +105,7 @@ print(f'Total')
 print(f'')
 
 
+
 print(f'Both parents alive   : {df1_T} ')
 print(f'Both parents alive   : {df1_P} %')
 
@@ -113,6 +122,10 @@ print(f'')
 print(f'Intervtn')
 print(f'')
 
+print(f'Total Intervtn                  : {df_i_T}')
+print(f'Percentage Intervtn             : {df_i_P} %')
+
+print(f'')
 
 print(f'Both parents alive (Intervtn)   : {df1_i_T}')
 print(f'Both parents alive (Intervtn)   : {df1_i_P} %')
@@ -131,7 +144,10 @@ print(f'')
 print(f'Control')
 print(f'')
 
+print(f'Total Control                  : {df_c_T}')
+print(f'Percentage Control             : {df_c_P} %')
 
+print(f'')
 
 print(f'Both parents alive (Control)   : {df1_c_T}')
 print(f'Both parents alive (Control)   : {df1_c_P} %')
