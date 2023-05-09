@@ -4,7 +4,7 @@ import numpy as np
 from datetime import datetime
 from datetime import date
 
-df = pd.read_excel('~/Documents/EAPOCVL/_2023_05_07/CLIENTS_VARIABLE.xlsx')
+df = pd.read_excel('~/Documents/EAPOCVL/_2023_05_07/CLIENTS.xlsx')
 # df = df.columns
 # print(df)
 
@@ -15,16 +15,16 @@ df = pd.read_excel('~/Documents/EAPOCVL/_2023_05_07/CLIENTS_VARIABLE.xlsx')
 # print(df)
 
 
-df = df[(df['redcap_event_name'] == 'enrollment_v1_arm_1')]
+# df = df[(df['redcap_event_name'] == 'enrollment_v1_arm_1')]
 
 
-df_T = df[(df['redcap_data_access_group'] == 'amana_hospital') | (df['redcap_data_access_group'] == 'mnazi_mmoja_hospit') | (
-    df['redcap_data_access_group'] == 'mwananyamala_hospi') | (df['redcap_data_access_group'] == 'sinza_hospital')]
+df_T = df[(df['site_id'] == 1) | (df['site_id'] == 2) | (
+    df['site_id'] == 3) | (df['site_id'] == 4)]
 
-df_L = df_T[(df_T['what_is_the_estimatd_dura'] != '')]
+df_L = df_T[(df_T['vl'] != '')]
 
-df_i_T = df_L[(df_L['redcap_data_access_group'] == 'mwananyamala_hospi') | (df_L['redcap_data_access_group'] == 'mnazi_mmoja_hospit')]
-df_c_T = df_L[(df_L['redcap_data_access_group'] == 'amana_hospital') | (df_L['redcap_data_access_group'] == 'sinza_hospital')]
+df_i_T = df_L[(df_L['site_id'] == 2) | (df_L['site_id'] == 4)]
+df_c_T = df_L[(df_L['site_id'] == 1) | (df_L['site_id'] == 3)]
 
 # df_L = df_L.info()
 
@@ -56,17 +56,17 @@ df_c_T = df_L[(df_L['redcap_data_access_group'] == 'amana_hospital') | (df_L['re
 # print(dob)
 
 
-df_L = df_L['what_is_the_estimatd_dura']
+df_L = df_L['vl']
 df_M = df_L.median()
 df_R = df_L.max() - df_L.min()
 # df.groupby("ChildID").apply(lambda x: x['abdomcirc'].max() - x['abdomcirc'].min())
 
 
-df_i_T = df_i_T['what_is_the_estimatd_dura']
+df_i_T = df_i_T['vl']
 df_i_M = df_i_T.median()
 df_i_R = df_i_T.max() - df_i_T.min()
 
-df_c_T = df_c_T['what_is_the_estimatd_dura']
+df_c_T = df_c_T['vl']
 df_c_M = df_c_T.median()
 df_c_R = df_c_T.max() - df_c_T.min()
 
