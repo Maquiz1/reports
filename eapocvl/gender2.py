@@ -2,7 +2,7 @@
 import pandas as pd
 
 
-df = pd.read_excel('~/Documents/EAPOCVL/_2023_05_07/CLIENTS_VARIABLE.xlsx')
+df = pd.read_excel('~/Documents/EAPOCVL/_2023_05_15/CLIENTS.xlsx')
 # df = df.columns
 # print(df)
 
@@ -37,13 +37,13 @@ df2_c = df2[(df2['redcap_data_access_group'] == 'amana_hospital') | (df2['redcap
 
 df_T = df_T.shape[0]
 df_L = df_L.shape[0]
-df_P = (df_L * 100) / (df_T)
+df_P = (df_L * 100) / (df_L)
 
 df_i_T = df_i_T.shape[0]
-df_i_P = (df_i_T * 100) / (df_T)
+df_i_P = (df_i_T * 100) / (df_L)
 
 df_c_T = df_c_T.shape[0]
-df_c_P = (df_c_T * 100) / (df_T)
+df_c_P = (df_c_T * 100) / (df_L)
 
 
 df1_T = df1.shape[0]
@@ -83,8 +83,8 @@ print(f'')
 
 
 
-print(f'Male                                : {df1_T} ')
-print(f'Male                                : {df1_P} %')
+print(f'Male                                     : {df1_T} ')
+print(f'Male                                     : {df1_P} %')
 
 print(f'Female                                   : {df2_T}')
 print(f'Female                                   : {df2_P} %')
@@ -94,15 +94,15 @@ print(f'')
 print(f'Intervtn')
 print(f'')
 
-print(f'Total Intervtn                         : {df_i_T}')
-print(f'Percentage Intervtn                    : {df_i_P} %')
+print(f'Total Intervtn                          : {df_i_T}')
+print(f'Percentage Intervtn                     : {df_i_P} %')
 
 print(f'')
 
-print(f'Male (Intervtn)                     : {df1_i_T}')
-print(f'Male (Intervtn)                     : {df1_i_P} %')
+print(f'Male (Intervtn)                         : {df1_i_T}')
+print(f'Male (Intervtn)                         : {df1_i_P} %')
 
-print(f'Female (Intervtn)                        : {df2_i_T}')
+print(f'Female (Intervtn)                       : {df2_i_T}')
 print(f'Female (Intervtn)                       : {df2_i_P} %')
 
 
@@ -111,13 +111,13 @@ print(f'')
 print(f'Control')
 print(f'')
 
-print(f'Total Control                          : {df_c_T}')
-print(f'Percentage Control                     : {df_c_P} %')
+print(f'Total Control                           : {df_c_T}')
+print(f'Percentage Control                      : {df_c_P} %')
 
 print(f'')
 
-print(f'Male (Control)                      : {df1_c_T}')
-print(f'Male (Control)                      : {df1_c_P} %')
+print(f'Male (Control)                           : {df1_c_T}')
+print(f'Male (Control)                           : {df1_c_P} %')
 
 print(f'Female (Control)                         : {df2_c_T}')
 print(f'Female (Control)                         : {df2_c_P} %')

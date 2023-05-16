@@ -2,7 +2,7 @@
 import pandas as pd
 
 
-df = pd.read_excel('~/Documents/EAPOCVL/_2023_05_07/CLIENTS_VARIABLE.xlsx')
+df = pd.read_excel('~/Documents/EAPOCVL/_2023_05_15/CLIENTS.xlsx')
 # df = df.columns
 # print(df)
 
@@ -21,8 +21,26 @@ df_T = df[(df['redcap_data_access_group'] == 'amana_hospital') | (df['redcap_dat
 
 df_L = df_T[(df_T['e_1_a_age_in_years'] >= 0) & (df_T['e_1_a_age_in_years'] <= 24)]
 
+df_sum_T = df_L[(df_L['e_1_a_age_in_years'] >= 0) & (df_L['e_1_a_age_in_years'] <= 24)]
+
+
 df_i_T = df_L[(df_L['redcap_data_access_group'] == 'mwananyamala_hospi') | (df_L['redcap_data_access_group'] == 'mnazi_mmoja_hospit')]
 df_c_T = df_L[(df_L['redcap_data_access_group'] == 'amana_hospital') | (df_L['redcap_data_access_group'] == 'sinza_hospital')]
+
+df_sum_I = df_i_T[(df_i_T['e_1_a_age_in_years'] >= 0) & (df_i_T['e_1_a_age_in_years'] <= 24)]
+df_sum_C = df_c_T[(df_c_T['e_1_a_age_in_years'] >= 0) & (df_c_T['e_1_a_age_in_years'] <= 24)]
+
+
+df_sum_T = df_sum_T['e_1_a_age_in_years'].sum()
+
+df_sum_I = df_sum_I['e_1_a_age_in_years'].sum()
+df_sum_I_P = (df_sum_I * 100) / (df_sum_T)
+
+df_sum_C = df_sum_C['e_1_a_age_in_years'].sum()
+df_sum_C_P = (df_sum_C * 100) / (df_sum_T)
+
+
+
 
 
 df1 = df_L[(df_L['e_1_a_age_in_years'] >= 0) & (df_L['e_1_a_age_in_years'] <= 12)]
@@ -85,6 +103,13 @@ print(f'')
 print(f'"NIMR SITES - TANZANIA"')
 print(f'"Parental status"')
 print(f'')
+print(f'Total age                               : {df_sum_T}')
+print(f'Total age (Intervention)                : {df_sum_I}')
+print(f'Total age (Percentage)                  : {df_sum_I_P}')
+print(f'Total age (Control)                     : {df_sum_C}')
+print(f'Total age (Percentage)                  : {df_sum_C_P}')
+
+
 
 print(f'Total Answers                           : {df_L}')
 print(f'Total Enrolled                          : {df_L}')
