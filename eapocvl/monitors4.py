@@ -51,11 +51,11 @@ df = df[(df['redcap_data_access_group'] == 'amana_hospital') | (df['redcap_data_
 # df.to_excel('/home/maquiz/Documents/EAPOVL/_2023_07_19/1.15.xlsx')
 
 
-# HOW MANY CHILDREN
-# df = df[df.do_you_have_your_own_child.isnull()]
-# df = df[(df['do_you_have_your_own_child'] == 1)]
-# df = df[df.how_many_children_do_you_h.isnull()]
-# df = df[(df['how_many_children_do_you_h'] < 1)]
+HOW MANY CHILDREN
+df = df[df.do_you_have_your_own_child.isnull()]
+df = df[(df['do_you_have_your_own_child'] == 1)]
+df = df[df.how_many_children_do_you_h.isnull()]
+df = df[(df['how_many_children_do_you_h'] < 1)]
 
 # df = df[['record_id', 'visit_date', 'do_you_have_your_own_child', 'how_many_children_do_you_h','redcap_data_access_group']
 #         ].sort_values('redcap_data_access_group')
