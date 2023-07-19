@@ -51,19 +51,44 @@ df = df[(df['redcap_data_access_group'] == 'amana_hospital') | (df['redcap_data_
 # df.to_excel('/home/maquiz/Documents/EAPOVL/_2023_07_19/1.15.xlsx')
 
 
-# HAVING CHILDREN
+# HOW MANY CHILDREN
 # df = df[df.do_you_have_your_own_child.isnull()]
-df = df[(df['do_you_have_your_own_child'] == 1)]
-# df['how_many_children_do_you_h'] = df['how_many_children_do_you_h'].astype('int')
+# df = df[(df['do_you_have_your_own_child'] == 1)]
 # df = df[df.how_many_children_do_you_h.isnull()]
-df = df[['record_id', 'visit_date', 'do_you_have_your_own_child', 'redcap_data_access_group']
+# df = df[(df['how_many_children_do_you_h'] < 1)]
+
+# df = df[['record_id', 'visit_date', 'do_you_have_your_own_child', 'how_many_children_do_you_h','redcap_data_access_group']
+#         ].sort_values('redcap_data_access_group')
+# df1 = df.shape
+# print(df)
+# print(df1)
+# df.to_excel('/home/maquiz/Documents/EAPOVL/_2023_07_19/1.16.xlsx')
+
+
+# # LIVING WITH CHILDREN
+# df = df[df.do_you_have_your_own_child.isnull()]
+# df = df[(df['do_you_have_your_own_child'] == 1)]
+# df = df[df.how_many_of_your_children.isnull()]
+
+# df = df[['record_id', 'visit_date', 'do_you_have_your_own_child', 'how_many_children_do_you_h','how_many_of_your_children','redcap_data_access_group']
+#         ].sort_values('redcap_data_access_group')
+# df1 = df.shape
+# print(df)
+# print(df1)
+# df.to_excel('/home/maquiz/Documents/EAPOVL/_2023_07_19/1.17.xlsx')
+
+# ADHERENCEN
+df = df[df.provide_participants_most.isnull()]
+# df = df[(df['do_you_have_your_own_child'] == 1)]
+# df = df[df.how_many_children_do_you_h.isnull()]
+# df = df[(df['how_many_children_do_you_h'] < 1)]
+
+df = df[['record_id', 'visit_date', 'provide_participants_most','redcap_data_access_group']
         ].sort_values('redcap_data_access_group')
 df1 = df.shape
 print(df)
 print(df1)
-df.to_excel('/home/maquiz/Documents/EAPOVL/_2023_07_19/1.16.xlsx')
-
-
+df.to_excel('/home/maquiz/Documents/EAPOVL/_2023_07_19/2.14.xlsx')
 
 
 # EAPOCVL SYSTEMS
