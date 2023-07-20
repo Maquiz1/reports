@@ -18,12 +18,40 @@ df2 = df2[(df2['redcap_data_access_group'] == 'amana_hospital') | (df2['redcap_d
 
 
 # ENROLLMENT
-# df = df[df.has_the_participant_ever.isnull()]
-# df = df[df.is_the_participant_still_i.isnull()]
 
-# SCHOOL CURRENT MISSING
+
+# SCHOOL 
+
+# df = df[(df.has_the_participant_ever.isnull()) | (df['has_the_participant_ever'] == ' ')]
+
+# df = df[['record_id', 'visit_date', 'has_the_participant_ever', 'redcap_data_access_group']
+#         ].sort_values('redcap_data_access_group')
+# df1 = df.shape
+# print(df)
+# print(df1)
+# df.to_excel('/home/maquiz/Documents/EAPOVL/_2023_07_19/1.9.xlsx')
+
+# # SCHOOL CURRENT MISSING
 # df = df[(df['has_the_participant_ever'] == 1)]
 # df = df[df.is_the_participant_still_i.isnull()]
+
+# df = df[['record_id', 'visit_date', 'has_the_participant_ever', 'is_the_participant_still_i', 'redcap_data_access_group']
+#         ].sort_values('redcap_data_access_group')
+# df1 = df.shape
+# print(df)
+# print(df1)
+# df.to_excel('/home/maquiz/Documents/EAPOVL/_2023_07_19/1.10.xlsx')
+
+# # EDUCATIONS  
+# df = df[df.has_the_participant_ever == 1]
+# df = df[(df.what_is_the_highest_level.isnull()) | (df['what_is_the_highest_level'] == ' ')]
+
+# df = df[['record_id', 'visit_date','has_the_participant_ever', 'what_is_the_highest_level', 'redcap_data_access_group']
+#         ].sort_values('redcap_data_access_group')
+# df1 = df.shape
+# print(df)
+# print(df1)
+# df.to_excel('/home/maquiz/Documents/EAPOVL/_2023_07_19/1.11.xlsx')
 
 # # EMPLYOMENT
 # # df = df[df.is_the_participnt_in_any.isnull()]
@@ -170,7 +198,7 @@ df2 = df2[(df2['redcap_data_access_group'] == 'amana_hospital') | (df2['redcap_d
 # print(df1)
 # df.to_excel('/home/maquiz/Documents/EAPOVL/_2023_07_19/2.15.xlsx')
 
-# # # Psychosocial type of support
+# # Psychosocial type of support
 # df = df[df.does_the_participant_have == 1]
 # df = df[(df.if_yes_list_the_type_of_su___1 == 0) & (df.if_yes_list_the_type_of_su___2 == 0) &
 #         (df.if_yes_list_the_type_of_su___3 == 0) & (df.if_yes_list_the_type_of_su___4 == 0) &
@@ -178,7 +206,7 @@ df2 = df2[(df2['redcap_data_access_group'] == 'amana_hospital') | (df2['redcap_d
 #         (df.if_yes_list_the_type_of_su___7 == 0) & (df.if_yes_list_the_type_of_su___8 == 0) &
 #         (df.if_yes_list_the_type_of_su___9 == 0)]
 
-# df = df[['record_id', 'visit_date', 'if_yes_list_the_type_of_su___1', 'if_yes_list_the_type_of_su___2',
+# df = df[['record_id', 'visit_date','does_the_participant_have', 'if_yes_list_the_type_of_su___1', 'if_yes_list_the_type_of_su___2',
 #        'if_yes_list_the_type_of_su___3', 'if_yes_list_the_type_of_su___4', 'if_yes_list_the_type_of_su___5',
 #        'if_yes_list_the_type_of_su___6', 'if_yes_list_the_type_of_su___7', 'if_yes_list_the_type_of_su___8',
 #        'if_yes_list_the_type_of_su___9', 'redcap_data_access_group']
@@ -215,64 +243,152 @@ df2 = df2[(df2['redcap_data_access_group'] == 'amana_hospital') | (df2['redcap_d
 # df.to_excel('/home/maquiz/Documents/EAPOVL/_2023_07_19/2.17.xlsx')
 
 
-# # intensive adherence counseling DATE
-df = df[df.has_intensive_adherence_co == 1]
-df = df[df.if_yes_when_was_intensive.isnull()]
+# # # intensive adherence counseling DATE
+# df = df[df.has_intensive_adherence_co == 1]
+# df = df[df.if_yes_when_was_intensive.isnull()]
 
 
-df = df[['record_id', 'visit_date','has_intensive_adherence_co', 'if_yes_when_was_intensive','redcap_data_access_group']
-        ].sort_values('redcap_data_access_group')
-df1 = df.shape
-print(df)
-print(df1)
-df.to_excel('/home/maquiz/Documents/EAPOVL/_2023_07_19/2.18.xlsx')
-
-
-# EAPOCVL SYSTEMS
-
-# df = df[['study_id', 'age', 'gender', 'marital_status',
-#          'education_level', 'occupation', 'site_id', 'recent_vl', 'recent_vl_date', 'vl', 'vl_date']]
-
-
-# all_columns = list(df) # Creates list of all column headers
-# df[all_columns] = df[all_columns].astype(str)
-
-# df = df[df.what_is_the_estimatd_dura.notnull()]
-# df[['what_is_the_estimatd_dura']] = df[['what_is_the_estimatd_dura']].astype('int')
-
-# df = df[df['what_is_the_estimatd_dura'] < 6]
-
-
-# START ART
-# df = df[df.when_did_the_participant_s.notnull()]
-# df['DateTime1'] = pd.to_datetime(df['visit_date'])
-# df['DateTime2'] = pd.to_datetime(df['when_did_the_participant_s'])
-# df['nb_months'] = ((df.DateTime1 - df.DateTime2)/np.timedelta64(1, 'M'))
-# df['nb_months'] = df['nb_months'].astype('int')
-# df[df['nb_months'] < 6]
-
-
-# START VIRAL LOAD
-# df = df[df.what_is_the_most_recent_vi.isnull()]
-# df['what_is_the_most_recent_vi'] = df['what_is_the_most_recent_vi'].astype('str')
-# df[df['what_is_the_most_recent_vi'] < '50']
-
-# df = df[df.visit_date.isnull()]
-# df = df[df.when_was_the_sample_for_th.isnull()]
-# df = df[df.what_is_the_most_recent_vi.isnull()]
-# df = df[df.when_was_the_vl_result_giv.isnull()]
-
-
-# VIRAL LOAD DURATION
-# df['DateTime1'] = pd.to_datetime(df['visit_date'])
-# df['DateTime2'] = pd.to_datetime(df['when_was_the_sample_for_th'])
-# df['nb_months'] = ((df.DateTime1 - df.DateTime2)/np.timedelta64(1, 'M'))
-# df['nb_months'] = df['nb_months'].astype('int')
-# df[df['nb_months'] < 6]
-
-# REDCAP
-# df = df[['record_id', 'visit_date', 'when_did_the_participant_s','nb_months', 'redcap_data_access_group']
+# df = df[['record_id', 'visit_date','has_intensive_adherence_co', 'if_yes_when_was_intensive','redcap_data_access_group']
 #         ].sort_values('redcap_data_access_group')
+# df1 = df.shape
+# print(df)
+# print(df1)
+# df.to_excel('/home/maquiz/Documents/EAPOVL/_2023_07_19/2.18.xlsx')
 
-# df = df[['record_id', 'visit_date', 'when_was_the_sample_for_th','what_is_the_most_recent_vi','nb_months', 'redcap_data_access_group']
-#         ].sort_values(by=['redcap_data_access_group', 'nb_months'])
+
+# # # Psychosocial type of support
+# df = df[(df.list_the_source_of_individ___1 == 0) & (df.list_the_source_of_individ___2 == 0) &
+#         (df.list_the_source_of_individ___3 == 0) & (df.list_the_source_of_individ___4 == 0) &
+#         (df.list_the_source_of_individ___5 == 0) & (df.list_the_source_of_individ___6 == 0)]
+
+# df = df[['record_id', 'visit_date', 'list_the_source_of_individ___1', 'list_the_source_of_individ___2',
+#        'list_the_source_of_individ___3', 'list_the_source_of_individ___4', 'list_the_source_of_individ___5',
+#        'list_the_source_of_individ___6','redcap_data_access_group']].sort_values(by=['redcap_data_access_group', 'record_id'])
+# df1 = df.shape
+# print(df)
+# print(df1)
+# df.to_excel('/home/maquiz/Documents/EAPOVL/_2023_07_19/2.19.xlsx')
+
+
+# # # Psychosocial type of support Other
+# df = df[(df.list_the_source_of_individ___6 == 1)]
+# df = df[df.if_other_specify_1.isnull()]
+
+
+# df = df[['record_id', 'visit_date', 'list_the_source_of_individ___6','if_other_specify_1',
+#          'redcap_data_access_group']].sort_values(by=['redcap_data_access_group', 'record_id'])
+# df1 = df.shape
+# print(df)
+# print(df1)
+# df.to_excel('/home/maquiz/Documents/EAPOVL/_2023_07_19/2.19 other.xlsx')
+
+# # DISTANCE
+# df = df[df.how_far_does_the_participa.isnull()]
+
+
+# df = df[['record_id', 'visit_date', 'how_far_does_the_participa',
+#          'redcap_data_access_group']].sort_values(by=['redcap_data_access_group', 'record_id'])
+# df1 = df.shape
+# print(df)
+# print(df1)
+# df.to_excel('/home/maquiz/Documents/EAPOVL/_2023_07_19/2.20.xlsx')
+
+
+# # PARENTS STATUS
+# df = df[(df.what_is_the_life_status_of.isnull()) | (df.what_is_the_life_status_of == ' ')]
+
+# df = df[['record_id', 'visit_date', 'what_is_the_life_status_of',
+#          'redcap_data_access_group']].sort_values(by=['redcap_data_access_group', 'record_id'])
+# df1 = df.shape
+# print(df)
+# print(df1)
+# df.to_excel('/home/maquiz/Documents/EAPOVL/_2023_07_19/2.21.xlsx')
+
+
+# # # PARENTS LIVING
+# df = df[(df.whom_does_the_participant.isnull()) | (df.whom_does_the_participant == ' ')]
+
+# df = df[['record_id', 'visit_date', 'whom_does_the_participant',
+#          'redcap_data_access_group']].sort_values(by=['redcap_data_access_group', 'record_id'])
+# df1 = df.shape
+# print(df)
+# print(df1)
+# df.to_excel('/home/maquiz/Documents/EAPOVL/_2023_07_19/2.22 .xlsx')
+
+
+# # # PARENTS LIVING Other
+# df = df[(df.whom_does_the_participant == 8)]
+# df = df[df.specify_3.isnull()]
+
+
+# df = df[['record_id', 'visit_date', 'whom_does_the_participant','specify_3',
+#          'redcap_data_access_group']].sort_values(by=['redcap_data_access_group', 'record_id'])
+# df1 = df.shape
+# print(df)
+# print(df1)
+# df.to_excel('/home/maquiz/Documents/EAPOVL/_2023_07_19/2.22 other.xlsx')
+
+
+# # # Psychosocial type of support Other
+# df = df[df.do_you_your_family_or_guar.isnull()]
+
+
+# df = df[['record_id', 'visit_date', 'do_you_your_family_or_guar',
+#          'redcap_data_access_group']].sort_values(by=['redcap_data_access_group', 'record_id'])
+# df1 = df.shape
+# print(df)
+# print(df1)
+# df.to_excel('/home/maquiz/Documents/EAPOVL/_2023_07_19/2.23.xlsx')
+
+
+# # # FACILITY EXISTS
+# df = df[(df.what_type_of_facilities_ex___1 == 0) & (df.what_type_of_facilities_ex___2 == 0) &
+#         (df.what_type_of_facilities_ex___3 == 0) & (df.what_type_of_facilities_ex___4 == 0) &
+#         (df.what_type_of_facilities_ex___5 == 0) & (df.what_type_of_facilities_ex___6 == 0) &
+#         (df.what_type_of_facilities_ex___7 == 0) & (df.what_type_of_facilities_ex___8 == 0)]
+
+# df = df[['record_id', 'visit_date', 'what_type_of_facilities_ex___1', 'what_type_of_facilities_ex___2',
+#        'what_type_of_facilities_ex___3', 'what_type_of_facilities_ex___4', 'what_type_of_facilities_ex___5',
+#        'what_type_of_facilities_ex___6', 'what_type_of_facilities_ex___7', 'what_type_of_facilities_ex___8',
+#        'redcap_data_access_group']].sort_values(by=['redcap_data_access_group', 'record_id'])
+# df1 = df.shape
+# print(df)
+# print(df1)
+# df.to_excel('/home/maquiz/Documents/EAPOVL/_2023_07_19/2.24.xlsx')
+
+
+# # # COMMENTS
+# df = df[df.relevant_comments_on_parti.isnull()]
+
+
+# df = df[['record_id', 'visit_date', 'relevant_comments_on_parti',
+#          'redcap_data_access_group']].sort_values(by=['redcap_data_access_group', 'record_id'])
+# df1 = df.shape
+# print(df)
+# print(df1)
+# df.to_excel('/home/maquiz/Documents/EAPOVL/_2023_07_19/2.25.xlsx')
+
+
+# # # COMMENTS YES
+# df = df[(df.relevant_comments_on_parti == 1)]
+# df = df[df.if_yes.isnull()]
+
+
+# df = df[['record_id', 'visit_date', 'relevant_comments_on_parti','if_yes',
+#          'redcap_data_access_group']].sort_values(by=['redcap_data_access_group', 'record_id'])
+# df1 = df.shape
+# print(df)
+# print(df1)
+# df.to_excel('/home/maquiz/Documents/EAPOVL/_2023_07_19/2.25 YES.xlsx')
+
+
+# # # COMPLETE
+# df['ea_poc_vl_enrollment_form_complete'] = df['ea_poc_vl_enrollment_form_complete'].astype('int')
+# df = df[(df.ea_poc_vl_enrollment_form_complete != 2)]
+
+# df = df[['record_id', 'visit_date', 'ea_poc_vl_enrollment_form_complete',
+#          'redcap_data_access_group']].sort_values(by=['redcap_data_access_group', 'record_id'])
+# df1 = df.shape
+# print(df)
+# print(df1)
+# df.to_excel('/home/maquiz/Documents/EAPOVL/_2023_07_19/COMPLETE.xlsx')
